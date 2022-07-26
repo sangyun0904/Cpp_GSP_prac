@@ -43,9 +43,9 @@ int main()
     // 작동할 워커 스레드
     vector<shared_ptr<thread> > threads;
 
-    for (int i = 1; i < ThreadCount; i++)
+    for (int i = 0; i < ThreadCount; i++)
     {
-        shared_ptr<thread> thread(new thread([&]() {
+        shared_ptr<thread> thread1(new thread([&]() {
             // 각 스레드의 메인 함수
             // 값을 가져올 수 있으면 루프를 돈다.
             while (true)
@@ -64,7 +64,7 @@ int main()
             }
         }));
         // 스레드 객체를 일단 갖고 있는다.
-        threads.push_back(thread);
+        threads.push_back(thread1);
     }
 
     // 모든 스레드가 일을 마칠 때까지 기다린다.
